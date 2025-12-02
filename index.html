@@ -1,29 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Kartu Remi</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kartu Remi — 3 Kolom (small cards)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Kartu Remi — 52 (tanpa Joker)</h1>
+      <div class="controls">
+        <button id="undoBtn" class="btn">Undo</button>
+        <button id="resetBtn" class="btn">Reset</button>
+        <div class="counts">
+          <div>Terbuka: <span id="openCount">0</span></div>
+          <div>Tertutup: <span id="closedCount">0</span></div>
+        </div>
+      </div>
+    </header>
 
-<h2>Terbuka: <span id="openCount">49</span></h2>
-<div id="openCards" class="card-container"></div>
+    <main class="grid">
+      <section class="col">
+        <h2>Terbuka</h2>
+        <div id="openArea" class="open-grid" aria-live="polite"></div>
+      </section>
 
-<h2>Tertutup: <span id="closedCount">3</span></h2>
-<div id="closedCards" class="card-container"></div>
+      <section class="col">
+        <h2>Tertutup</h2>
+        <div id="closedArea" class="closed-area">
+          <div id="closedBack" class="card-back-placeholder" title="Tumpukan tertutup"></div>
+          <div class="closed-count">Total: <span id="closedCountLabel">0</span></div>
+        </div>
+      </section>
 
-<h2>Hasil Pencarian</h2>
-<select id="cardSelect">
-    <option value="">Pilih kartu...</option>
-</select>
+      <section class="col-full">
+        <h2>Hasil Pencarian</h2>
+        <div class="search-row">
+          <button id="searchBtn" class="ddBtn">Pilih kartu ▾</button>
+          <div id="searchPanel" class="panel" aria-hidden="true"></div>
+        </div>
 
-<div id="searchResult" class="card-container"></div>
+        <div id="resultArea" class="result-area">
+          <div id="resultCardPlaceholder" class="result-placeholder">Pilih kartu dari dropdown</div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-<button id="undoBtn">Undo</button>
-<button id="resetBtn">Reset</button>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
